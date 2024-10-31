@@ -39,7 +39,7 @@ const Header = () => {
       >
         <NavbarBrand className={isBoxVisible ? 'grow-0 mb-4 mt-8' : 'grow-0 mb-4'}>
           <Link href={isBoxVisible ? '/home' : '/#'}>
-            <Image removeWrapper={true} className='p-5' src='/images/AhsanLogo.png' alt='Logo' />
+            <Image removeWrapper={true} className='p-5' src='/images/AhsanLogoPNGLogo.png' alt='Logo' />
           </Link>
         </NavbarBrand>
         <NavbarContent className={'overflow-y-auto alinaeem'} justify={'start'}>

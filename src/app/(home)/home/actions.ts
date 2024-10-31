@@ -8,3 +8,9 @@ export const getAllGroupsCards = async (token: string | null): Promise<GroupCard
   const data = await getCall(url, token);
   return data.data.groups;
 };
+
+export const searchGroups = async (keyword: string): Promise<GroupCardResponse[]> => {
+  const url = `${baseUrl}${apiRoutes.searchGroups}?keyword=${keyword}`;
+  const data = await getCall(url);
+  return data.data.groups;
+};

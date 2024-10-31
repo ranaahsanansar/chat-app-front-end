@@ -30,7 +30,7 @@ const MainNavbar = () => {
       >
         <NavbarBrand className={'grow-0 mb-4'}>
           <Link href={'/dashboard'}>
-            <Image removeWrapper={true} src='/images/AhsanLogo.png' alt='Logo' />
+            <Image removeWrapper={true} src='/images/AhsanLogoPNGLogo.png' alt='Logo' />
           </Link>
         </NavbarBrand>
         <NavbarContent justify={'start'}>

@@ -77,7 +77,7 @@ export default function Home() {
           <div className='flex flex-col gap-6 h-full justify-center'>
             <div>
               <Image
-                src='/images/AhsanLogo.png'
+                src='/images/AhsanLogoPNGLogo.png'
                 classNames={{
                   img: 'rounded-none',
                 }}

@@ -3,8 +3,19 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure
 import Input from './Input';
 import Button from './Button';
 import { use, useEffect, useState } from 'react';
+import { crateGroup } from '@/app/(home)/home/actions';
+import { TOKEN_KEY } from '@/constants/constants';
+import { ModalAlertTypesEnum } from '@/constants/enums';
 
-export default function CreateGroupModal({ handleRevalidate }: { handleRevalidate: () => void }) {
+export default function CreateGroupModal({
+  handleRevalidate,
+  handleAlertModals,
+  setToastMessage,
+}: {
+  handleRevalidate: () => void;
+  handleAlertModals: (type: ModalAlertTypesEnum) => void;
+  setToastMessage: (message: string) => void;
+}) {
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
   const [name, setName] = useState('');
 
@@ -12,12 +23,23 @@ export default function CreateGroupModal({ handleRevalidate }: { handleRevalidat
     setName('');
   }, [isOpen]);
 
-  const handleCreateClick = () => {
+  const handleCreateClick = async () => {
     console.log(name);
     if (name === '') {
       onClose();
       return;
     }
+    await crateGroup({ name }, localStorage.getItem(TOKEN_KEY))
+      .then(() => {
+        console.log('Group created successfully');
+        setToastMessage('Group created successfully');
+        handleAlertModals(ModalAlertTypesEnum.SUCCESS);
+      })
+      .catch((e) => {
+        console.log('Error : ', e);
+        setToastMessage(e.message);
+        handleAlertModals(ModalAlertTypesEnum.ERROR);
+      });
     handleRevalidate();
     onClose();
   };

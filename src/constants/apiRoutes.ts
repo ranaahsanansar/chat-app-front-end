@@ -3,4 +3,5 @@ export const apiRoutes = {
   userLogin: '/users/login',
   searchGroups: '/users/search-group',
   createAccount: '/users/create-user',
+  crateGroup: '/chats/create-group',
 };

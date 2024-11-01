@@ -10,3 +10,14 @@ export const userLogin = async (username: string, password: string) => {
   };
   return await postCall(url, data);
 };
+
+export const createAccount = async (username: string, password: string, email: string, confirmPassword: string) => {
+  const url = `${baseUrl}${apiRoutes.createAccount}`;
+  const data = {
+    username,
+    password,
+    email,
+    confirm_password: confirmPassword,
+  };
+  return await postCall(url, data);
+};

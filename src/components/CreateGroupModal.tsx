@@ -6,7 +6,6 @@ import { use, useEffect, useState } from 'react';
 
 export default function CreateGroupModal({ handleRevalidate }: { handleRevalidate: () => void }) {
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
-
   const [name, setName] = useState('');
 
   useEffect(() => {

@@ -20,3 +20,9 @@ export const crateGroup = async (postData: any, token: string | null) => {
   const data = await postCall(url, postData, token);
   return data;
 };
+
+export const deleteGroup = async (id: string, token: string | null) => {
+  const url = `${baseUrl}${apiRoutes.deleteGroup}/${id}`;
+  const data = await getCall(url, token);
+  return data;
+};

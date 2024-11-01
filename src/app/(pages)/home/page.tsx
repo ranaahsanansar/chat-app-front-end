@@ -105,7 +105,15 @@ const Home = () => {
 
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6'>
         {data.map((item) => (
-          <DashboardCard key={item.group_id} primaryText={item.name} />
+          <DashboardCard
+            handleRevalidate={triggerRevalidate}
+            handleAlertModals={handleAlertModals}
+            setToastMessage={setToastMessage}
+            groupId={String(item.group_id)}
+            key={item.group_id}
+            primaryText={item.name}
+            isDeleteAble={item.is_delete_able}
+          />
         ))}
       </div>
     </div>

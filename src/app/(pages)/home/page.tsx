@@ -82,8 +82,8 @@ const Home = () => {
   };
   return (
     <div className='max-w-[100%] 2xl:max-w-[90%]'>
-      <PageHeading heading='Home Go Chat' className='mb-4' />
-      <p>You can only enter to those groups which you have joined.</p>
+      <PageHeading heading='Home Go Chat' className='mb-4 text-textColor' />
+      <p className='text-textColor'>You can only enter to those groups which you have joined.</p>
       <CreateGroupModal
         handleRevalidate={triggerRevalidate}
         handleAlertModals={handleAlertModals}
@@ -104,6 +104,15 @@ const Home = () => {
       </div>
 
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6'>
+        <DashboardCard
+          handleRevalidate={triggerRevalidate}
+          handleAlertModals={handleAlertModals}
+          setToastMessage={setToastMessage}
+          groupId={String(2)}
+          key={2}
+          primaryText={'Course Name'}
+          isDeleteAble={true}
+        />
         {data.map((item) => (
           <DashboardCard
             handleRevalidate={triggerRevalidate}

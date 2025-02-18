@@ -37,35 +37,16 @@ const Header = () => {
         } w-full transition-transform bg-primary xl:hidden duration-100 max-w-[200px] xl:max-w-[200px] fixed left-0 top-0 bottom-0 xl:relative xl:ml-0`}
         classNames={navbarClass}
       >
+        {isBoxVisible ? <div onClick={handleButtonClick}>X</div> : ''}
         <NavbarBrand className={isBoxVisible ? 'grow-0 mb-4 mt-8' : 'grow-0 mb-4'}>
-          <Link href={isBoxVisible ? '/home' : '/#'}>
-            <Image removeWrapper={true} className='p-5' src='/images/AhsanLogoPNGLogo.png' alt='Logo' />
-          </Link>
+          <p className='font-bold text-inherit '>Brain Chains</p>
         </NavbarBrand>
-        <NavbarContent className={'overflow-y-auto alinaeem'} justify={'start'}>
-          {isBoxVisible ? (
-            <Button
-              onClick={handleButtonClick}
-              className={'bg-transparent min-w-fit xl:hidden absolute right-0 top-0 h-auto p-0 sm:p-2'}
-            >
-              <NavBtnSvg1 />
+        <NavbarContent className={'overflow-y-auto'} justify='start'>
+          <NavbarItem>
+            <Button as={Link} color='primary' href='#' variant='flat'>
+              Sign Up
             </Button>
-          ) : (
-            <Button onClick={handleButtonClick} className={'bg-transparent min-w-fit xl:hidden fixed left-6 top-6'}>
-              <NavBtnSvg2 />
-            </Button>
-          )}
-
-          {PRIVATE_ROUTES?.map((route: any, index: number) => {
-            return (
-              <NavbarItem key={index} isActive={isPathName(pathname, route?.path)}>
-                <Link className='py-3 px-3 flex items-center gap-2 text-[16px]' href={route.path} aria-current='page'>
-                  {route?.icon}
-                  {route?.title}
-                </Link>
-              </NavbarItem>
-            );
-          })}
+          </NavbarItem>
         </NavbarContent>
       </Navbar>
     </>
